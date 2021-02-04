@@ -1,0 +1,44 @@
+.main-container {
+  text-transform: uppercase;
+}
+
+.city {
+  font-size: 2.4rem;
+}
+.week {
+  display: inline-block;
+}
+
+.temp,
+.overcast {
+  display: inline-block;
+}
+
+.temp {
+  position: relative;
+  font-size: 16.5rem;
+  font-weight: 700;
+  line-height: 23.313rem;
+
+  & .degree-icon {
+    position: absolute;
+    top: -4rem;
+    right: -3.5rem;
+    font-size: 5.5rem;
+    z-index: 1;
+  }
+
+  & .icon {
+    position: absolute;
+    transform: scale(0.9);
+    top: 1rem;
+    z-index: 0;
+  }
+}
+
+.overcast {
+  margin-left: 5.25rem;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  font-weight: 700;
+}

@@ -1,0 +1,16 @@
+.btn {
+  display: inline-block;
+  padding: 1rem;
+
+  &.refresh {
+    background: url("../../assets/refresh-bg.png") no-repeat;
+  }
+
+  &.degree {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  &.lang {
+    width: 3rem;
+  }
+}

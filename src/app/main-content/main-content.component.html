@@ -1,0 +1,36 @@
+<div class="main-container">
+    <h2 class="city"> Minsk, Belarus </h2>
+    <p> <span class="date"> Mon, 25 december </span> <span class="time"> 12:34 </span> </p>
+
+    <div>
+        <span class="temp"> 10<span class="degree-icon">&deg;</span>
+            <img class="icon"
+                 src="../../assets/clouds.png">
+        </span>
+
+        <ul class="overcast">
+            <li>Overcast</li>
+            <li class="feel"> <span>Feels like:</span> {{ today.feels }} </li>
+            <li class="wind"> <span>Wind:</span> {{ today.wind }} </li>
+            <li class="hum"> <span>Humidity:</span> {{ today.humidity }} </li>
+        </ul>
+    </div>
+    <div class="forecast">
+        <li class="week">
+            <p> Monday </p>
+            <p class="temp"> {{ temp }} </p>
+            <img class="icon">
+        </li>
+        <li class="week">
+            <p> Monday </p>
+            <p class="temp"> {{ temp }} </p>
+            <img class="icon">
+        </li>
+        <li class="week">
+            <p> Monday </p>
+            <p class="temp"> {{ temp }} </p>
+            <img class="icon">
+        </li>
+    </div>
+
+</div>
