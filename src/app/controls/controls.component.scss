@@ -14,3 +14,17 @@
     width: 3rem;
   }
 }
+
+select,
+input {
+  border: none;
+  outline: none;
+}
+
+input[type="radio"] {
+  visibility: hidden;
+  width: 0;
+}
+input[type="radio"]:checked + label {
+  color: blue;
+}

@@ -3,16 +3,21 @@
         <img src="../../assets/refresh.png">
     </div>
 
-    <mat-form-field class="btn lang">
-        <mat-label>Lang</mat-label>
-        <mat-select [(value)]="selectedLang">
-            <mat-option value="option1">EN</mat-option>
-            <mat-option value="option2">RU</mat-option>
-        </mat-select>
-    </mat-form-field>
+    <select class="btn select ">
+        <option value="EN">EN</option>
+        <option value="RU">RU</option>
+    </select>
 
-    <div class="btn degree">
-        <span>&#8451;</span>
-        <span>&#8457;</span>
+    <div class="degree">
+        <input id="a"
+               class="btn"
+               type="radio"
+               name="degree-type"
+               checked> <label for="a">&#8451;</label>
+
+        <input id="b"
+               class="btn"
+               type="radio"
+               name="degree-type"> <label for="b">&#8457;</label>
     </div>
 </div>
