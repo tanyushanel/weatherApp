@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { AgmCoreModule } from '@agm/core';
+
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,13 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatSelectModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'GOOGLE API KEY',
+      libraries: ['places'],
+    }),
+    GoogleMapsModule,
   ],
+
   exports: [MatFormFieldModule, MatInputModule, MatSelectModule],
   providers: [],
   bootstrap: [AppComponent],

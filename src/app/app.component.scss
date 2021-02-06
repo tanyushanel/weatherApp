@@ -1,12 +1,12 @@
 .home {
   position: relative;
   display: block;
-  height: 100%;
+  overflow: hidden;
   background: url("../assets/gradient.png") no-repeat;
-  padding: 2rem 5rem;
+  padding: 2.1rem 5.1rem;
   margin: 0 auto;
   width: 78.5rem;
-  height: 43.5rem;
+  min-height: 43.5rem;
   box-sizing: border-box;
   color: #ffffff;
 }

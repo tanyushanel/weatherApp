@@ -1,16 +1,20 @@
 .btn {
-  display: inline-block;
-  padding: 0.5rem;
-  background: rgba(174, 181, 185, 0.5);
+  display: inline-flex;
+  overflow: hidden;
   border-radius: 5px;
-  margin-left: 0.5rem;
+  margin-right: 0.7rem;
+  background: rgba(174, 181, 185, 0.5);
+  font-weight: 700;
+  vertical-align: text-top;
 
   &.refresh {
     background: url("../../assets/refresh-bg.png") no-repeat;
-  }
+    padding: 0.7rem;
 
-  &.lang {
-    width: 3rem;
+    & img {
+      width: 0.8rem;
+      height: 1rem;
+    }
   }
 }
 
@@ -20,12 +24,22 @@ input {
   outline: none;
   color: #ffffff;
   font-family: "Montserrat", sans-serif;
+  font-size: 0.7em;
+  padding: 0.7rem;
 }
 
 input[type="radio"] {
   visibility: hidden;
   width: 0;
+  margin: 0;
 }
-input[type="radio"]:checked + label {
-  color: blue;
+
+input[type="radio"]:not(:checked) + label {
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(76, 82, 85, 0.4);
+}
+
+label {
+  padding: 0.7rem;
+  font-size: 0.8em;
 }

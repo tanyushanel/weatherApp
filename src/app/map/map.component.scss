@@ -1,3 +1,17 @@
 p {
+  text-align: right;
   font-size: 1.25em;
+}
+
+.map-frame {
+  width: 23.5rem;
+  height: 23.5rem;
+  border-radius: 2rem;
+
+  margin: 2.5rem 0;
+}
+
+agm-map {
+  height: 300px !important;
+  width: 100%; /* This is really important*/
 }

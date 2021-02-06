@@ -4,9 +4,14 @@
 
 .city {
   font-size: 2.4rem;
+  margin-bottom: 0;
 }
 .week {
   display: inline-block;
+}
+
+.time {
+  margin: 0;
 }
 
 .temp,
@@ -36,9 +41,32 @@
   }
 }
 
-.overcast {
-  margin-left: 5.25rem;
+.cast {
   font-size: 1.2rem;
   line-height: 2rem;
   font-weight: 700;
+
+  &.overcast {
+    margin-left: 5.25rem;
+  }
+
+  & .week {
+    margin-right: 6rem;
+  }
+}
+
+.week span {
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 6rem;
+}
+.week img {
+  position: absolute;
+  transform: scale(0.35);
+  top: -1.5rem;
+  right: -7rem;
+  z-index: 0;
+}
+.week-temp {
+  position: relative;
 }

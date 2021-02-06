@@ -1,6 +1,6 @@
 <div class="main-container">
     <h2 class="city"> Minsk, Belarus </h2>
-    <p> <span class="date"> Mon, 25 december </span> <span class="time"> 12:34 </span> </p>
+    <p class="time"> <span> Mon, 25 december </span> <span> 12:34 </span> </p>
 
     <div>
         <span class="temp"> 10<span class="degree-icon">&deg;</span>
@@ -8,29 +8,35 @@
                  src="../../assets/clouds.png">
         </span>
 
-        <ul class="overcast">
+        <ul class="cast overcast">
             <li>Overcast</li>
             <li class="feel"> <span>Feels like:</span> {{ today.feels }} </li>
             <li class="wind"> <span>Wind:</span> {{ today.wind }} </li>
             <li class="hum"> <span>Humidity:</span> {{ today.humidity }} </li>
         </ul>
     </div>
-    <div class="forecast">
+    <ul class="cast forecast">
         <li class="week">
             <p> Monday </p>
-            <p class="temp"> {{ temp }} </p>
-            <img class="icon">
+            <div>
+                <span class="week-temp"> 7&deg;<img src="../../assets/clouds.png"></span>
+
+            </div>
         </li>
         <li class="week">
             <p> Monday </p>
-            <p class="temp"> {{ temp }} </p>
-            <img class="icon">
+            <div>
+                <span class="week-temp"> 56&deg;<img src="../../assets/clouds.png"></span>
+
+            </div>
         </li>
         <li class="week">
             <p> Monday </p>
-            <p class="temp"> {{ temp }} </p>
-            <img class="icon">
+            <div>
+                <span class="week-temp"> 6&deg;<img src="../../assets/clouds.png"></span>
+
+            </div>
         </li>
-    </div>
+    </ul>
 
 </div>
