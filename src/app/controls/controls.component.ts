@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {
-  MAT_FORM_FIELD,
-  MatFormField,
-  MatFormFieldControl,
-} from '@angular/material/form-field';
+import { WeatherService } from './../weather.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+
 @Component({
   selector: 'app-controls',
   templateUrl: './controls.component.html',
@@ -12,7 +8,13 @@ import {
 })
 export class ControlsComponent implements OnInit {
   selectedLang: string;
-  constructor() {}
+  @Output() refreshClickFromControls = new EventEmitter();
+
+  constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {}
+
+  refreshBg(): void {
+    this.refreshClickFromControls.emit();
+  }
 }

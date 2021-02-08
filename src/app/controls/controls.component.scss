@@ -1,4 +1,5 @@
 .btn {
+  cursor: pointer;
   display: inline-flex;
   overflow: hidden;
   border-radius: 5px;
@@ -40,6 +41,7 @@ input[type="radio"]:not(:checked) + label {
 }
 
 label {
+  cursor: pointer;
   padding: 0.7rem;
   font-size: 0.8em;
 }
