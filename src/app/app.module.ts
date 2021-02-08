@@ -35,7 +35,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     BrowserAnimationsModule,
     MatSelectModule,
     AgmCoreModule.forRoot({
-      apiKey: 'GOOGLE API KEY',
+      apiKey: 'AIzaSyD6rT1K-ThsfqoNbRkutsByW6PgwD47igo',
       libraries: ['places'],
     }),
     GoogleMapsModule,

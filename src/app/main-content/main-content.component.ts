@@ -24,7 +24,7 @@ export class MainContentComponent implements OnInit {
   temp: string;
   time: moment.Moment;
 
-  feels: string;
+  feel: string;
   wind: string;
   humidity: string;
   week: string;

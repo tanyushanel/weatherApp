@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AgmCoreModule } from '@agm/core';
 
 @Component({
   selector: 'app-map',

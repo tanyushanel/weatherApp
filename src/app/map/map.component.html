@@ -1,11 +1,9 @@
 <div class="map-container">
     <div class="map-frame">
-        <agm-map [latitude]="lat"
-                 [longitude]="lng"
-                 [zoom]="zoom"
-                 [disableDefaultUI]="false"
-                 (mapClick)="mapClicked($event)">
 
+        <google-map height="400px"
+                    width="100%"
+                    [zoom]="zoom">
             <agm-marker *ngFor="let m of markers; let i = index"
                         (markerClick)="clickedMarker(m.label, i)"
                         [latitude]="m.lat"
@@ -20,15 +18,7 @@
 
             </agm-marker>
 
-            <agm-circle [latitude]="lat + 0.3"
-                        [longitude]="lng"
-                        [radius]="5000"
-                        [fillColor]="'red'"
-                        [circleDraggable]="true"
-                        [editable]="true">
-            </agm-circle>
-
-        </agm-map>
+        </google-map>
     </div>
     <p class="latitude">Latitude: </p>
     <p class="longitude">Longitude: </p>
