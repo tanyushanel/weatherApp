@@ -1,6 +1,5 @@
 {
-
-        "PLACE": {
+    "PLACE": {
             "city": "Минск",
             "country": "Беларусь",
             "time": ""
@@ -23,6 +22,6 @@
         "COORDS": {
             "latitude": "Широта: ",
             "longitude": "Долгота: "
-        }
+    }
 
 }

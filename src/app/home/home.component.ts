@@ -7,11 +7,24 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   @Output() refreshClickFromHome = new EventEmitter();
-  ngOnInit(): void {}
+
+  my123: string;
+
+  ngOnInit(): void {
+    window.setInterval(this.testTimer.bind(this), 1000);
+  }
 
   constructor() {}
 
   randomBg(): void {
     this.refreshClickFromHome.emit();
+  }
+
+  homeDegreeChange(event: string): void {
+    this.my123 = event;
+  }
+
+  testTimer() {
+    console.log(this.my123);
   }
 }

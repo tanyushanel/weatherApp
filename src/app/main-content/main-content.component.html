@@ -1,9 +1,9 @@
 <div class="main-container">
     <h2 class="city"> {{ 'PLACE.city' | translate }}, {{ 'PLACE.country' | translate }}</h2>
-    <p class="time"> <span> Mon, 25 december </span> <span> 12:34 </span> </p>
+    <p class="time"> <span> {{ today.time }} </span> </p>
 
     <div>
-        <span class="temp"> 10<span class="degree-icon">&deg;</span>
+        <span class="temp"> {{ 10 | tempConverter: '{{degreeType}}'' }}<span class="degree-icon">&deg;</span>
             <img class="icon"
                  src="../../assets/clouds.png">
         </span>

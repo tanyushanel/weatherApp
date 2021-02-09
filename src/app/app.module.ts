@@ -19,6 +19,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GoogleMapsModule } from '@angular/google-maps';
 
+import { TempConverterPipe } from './temp-converter.pipe';
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -31,6 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MapComponent,
     ControlsComponent,
     HomeComponent,
+
+    TempConverterPipe,
   ],
   imports: [
     BrowserModule,

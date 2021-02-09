@@ -7,13 +7,15 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./controls.component.scss'],
 })
 export class ControlsComponent implements OnInit {
-  lang: string;
+  degreeType: string = 'c';
+  @Output() degreeTypeChanged = new EventEmitter<string>();
+
   @Output() refreshClickFromControls = new EventEmitter();
 
   constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'ru']);
     translate.setDefaultLang('en');
-    translate.use('en');
+
     const browserLang = translate.getBrowserLang();
     translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
@@ -22,5 +24,9 @@ export class ControlsComponent implements OnInit {
 
   refreshBg(): void {
     this.refreshClickFromControls.emit();
+  }
+
+  changeDegreeType(): void {
+    this.degreeTypeChanged.emit(this.degreeType);
   }
 }

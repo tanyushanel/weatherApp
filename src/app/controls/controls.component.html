@@ -19,11 +19,16 @@
                class="btn"
                type="radio"
                name="degree-type"
-               checked> <label for="c">&deg;C</label>
+               value="c"
+               (ngModelChange)="changeDegreeType()"
+               [(ngModel)]="degreeType"> <label for="c">&deg;C</label>
 
         <input id="f"
                class="btn"
                type="radio"
-               name="degree-type"> <label for="f">&deg;F</label>
+               name="degree-type"
+               value="f"
+               (ngModelChange)="changeDegreeType()"
+               [(ngModel)]="degreeType"> <label for="f">&deg;F</label>
     </div>
 </div>

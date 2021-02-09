@@ -1,6 +1,5 @@
 {
-
-        "PLACE": {
+    "PLACE": {
             "city": "Minsk",
             "country": "Belarus",
             "time": ""
@@ -23,6 +22,5 @@
         "COORDS": {
             "latitude": "Latitude: ",
             "longitude": "Longitude: "
-        }
-
+    }
 }

@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { TranslateService } from '@ngx-translate/core';
 
-export interface Day {
+export class Day {
+  time?: string;
+  feels?: string;
+  wind?: string;
+  humidity?: string;
+}
+
+export class City {
   city: string;
-  date: moment.Moment;
-  time: moment.Moment;
-  feels: string;
-  wind: string;
-  humidity: string;
-  map: string;
+  country: string;
+  time?: moment.Moment;
+  locale?: string;
 }
 
 @Component({
@@ -18,9 +23,9 @@ export interface Day {
 })
 export class MainContentComponent implements OnInit {
   today: Day;
+
   city: string;
   country: string;
-  date: moment.Moment;
   temp: string;
   time: moment.Moment;
 
@@ -29,7 +34,15 @@ export class MainContentComponent implements OnInit {
   humidity: string;
   week: string;
 
-  constructor() {}
+  abc: string;
 
-  ngOnInit(): void {}
+  constructor(private translate: TranslateService) {}
+
+  ngOnInit(): void {
+    moment.locale(this.translate.currentLang);
+    console.log(moment.locale());
+    this.today = new Day();
+
+    this.today.time = moment().format('MMMM Do YYYY, h:mm ');
+  }
 }
