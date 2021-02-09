@@ -1,4 +1,3 @@
-import { WeatherService } from './../weather.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -10,7 +9,7 @@ export class ControlsComponent implements OnInit {
   selectedLang: string;
   @Output() refreshClickFromControls = new EventEmitter();
 
-  constructor(private weatherService: WeatherService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 

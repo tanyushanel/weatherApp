@@ -1,4 +1,3 @@
-import { WeatherService } from './weather.service';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -22,7 +21,7 @@ export class AppComponent {
     ];
   }
 
-  constructor(private weatherService: WeatherService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }
