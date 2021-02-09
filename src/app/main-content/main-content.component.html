@@ -1,5 +1,5 @@
 <div class="main-container">
-    <h2 class="city"> Minsk, Belarus </h2>
+    <h2 class="city"> {{ 'PLACE.city' | translate }}, {{ 'PLACE.country' | translate }}</h2>
     <p class="time"> <span> Mon, 25 december </span> <span> 12:34 </span> </p>
 
     <div>
@@ -9,32 +9,31 @@
         </span>
 
         <ul class="cast overcast">
-            <li>Overcast</li>
-            <li class="feel"> <span>Feels like:</span> {{ feel }} </li>
-            <li class="wind"> <span>Wind:</span> {{ wind }} </li>
-            <li class="hum"> <span>Humidity:</span> {{ humidity }} </li>
+            <li class="overcast"><span>{{ 'OVERCAST.overcast' | translate }} </span> <span></span> </li>
+            <li class="feel"> <span>{{ 'OVERCAST.feels' | translate }} </span> <span></span> </li>
+            <li class="wind"> <span>{{ 'OVERCAST.wind' | translate }}</span> <span></span> </li>
+            <li class="hum"> <span>{{ 'OVERCAST.humidity' | translate }}</span> <span></span> </li>
         </ul>
     </div>
     <ul class="cast forecast">
         <li class="week">
-            <p> Monday </p>
+            <p> {{'FORECAST.tomorrow' | translate}} </p>
             <div>
                 <span class="week-temp"> 7&deg;<img src="../../assets/clouds.png"></span>
 
             </div>
         </li>
         <li class="week">
-            <p> Monday </p>
+            <p> {{'FORECAST.in one day' | translate}} </p>
             <div>
                 <span class="week-temp"> 56&deg;<img src="../../assets/clouds.png"></span>
 
             </div>
         </li>
         <li class="week">
-            <p> Monday </p>
+            <p> {{ 'FORECAST.in two days' | translate }} </p>
             <div>
                 <span class="week-temp"> 6&deg;<img src="../../assets/clouds.png"></span>
-
             </div>
         </li>
     </ul>

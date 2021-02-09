@@ -1,0 +1,28 @@
+{
+
+        "PLACE": {
+            "city": "Минск",
+            "country": "Беларусь",
+            "time": ""
+        },
+        "OVERCAST": {
+            "overcast": "Облачность: ",
+            "feels": "Ощущается как: ",
+            "wind": "Ветер: ",
+            "humidity": "Влажность: "
+        },
+        "FORECAST": {
+            "tomorrow": "Завтра",
+            "in one day": "Послезавтра",
+            "in two days": "Через 2 дня"
+        },
+        "SEARCH": {
+            "button": "ПОИСК",
+            "placeholder": "Введите город или индекс"
+        },
+        "COORDS": {
+            "latitude": "Широта: ",
+            "longitude": "Долгота: "
+        }
+
+}

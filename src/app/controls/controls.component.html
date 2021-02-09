@@ -4,10 +4,15 @@
         <img src="../../assets/refresh.png">
     </div>
 
-    <select class="btn select ">
-        <option value="EN">EN</option>
-        <option value="RU">RU</option>
+    <select class="btn select "
+            #langSelect
+            (change)="translate.use(langSelect.value)">
+        <option *ngFor="let lang of translate.getLangs()"
+                [value]="lang"
+                [selected]="lang === translate.currentLang">{{ lang }}</option>
     </select>
+
+
 
     <div class="btn degree">
         <input id="c"

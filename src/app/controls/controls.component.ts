@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-controls',
@@ -6,10 +7,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./controls.component.scss'],
 })
 export class ControlsComponent implements OnInit {
-  selectedLang: string;
+  lang: string;
   @Output() refreshClickFromControls = new EventEmitter();
 
-  constructor() {}
+  constructor(public translate: TranslateService) {
+    translate.addLangs(['en', 'ru']);
+    translate.setDefaultLang('en');
+    translate.use('en');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+  }
 
   ngOnInit(): void {}
 

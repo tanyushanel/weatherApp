@@ -12,14 +12,12 @@
                         [markerDraggable]="m.draggable"
                         (dragEnd)="markerDragEnd(m, $event)">
 
-                <agm-info-window>
-                    <strong>InfoWindow content</strong>
-                </agm-info-window>
+
 
             </agm-marker>
 
         </google-map>
     </div>
-    <p class="latitude">Latitude: </p>
-    <p class="longitude">Longitude: </p>
+    <p class="latitude"> {{ 'COORDS.latitude' | translate }} </p>
+    <p class="longitude"> {{ 'COORDS.longitude' | translate }} </p>
 </div>

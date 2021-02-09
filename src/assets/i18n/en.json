@@ -1,0 +1,28 @@
+{
+
+        "PLACE": {
+            "city": "Minsk",
+            "country": "Belarus",
+            "time": ""
+        },
+        "OVERCAST": {
+            "overcast": "Overcast: ",
+            "feels": "Feels like: ",
+            "wind": "Wind: ",
+            "humidity": "Humidity: "
+        },
+        "FORECAST": {
+            "tomorrow": "tomorrow",
+            "in one day": "in one day",
+            "in two days": "in two days"
+        },
+        "SEARCH": {
+            "button": "search",
+            "placeholder": "Search city or ZIP"
+        },
+        "COORDS": {
+            "latitude": "Latitude: ",
+            "longitude": "Longitude: "
+        }
+
+}

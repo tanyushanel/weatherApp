@@ -1,4 +1,4 @@
-import { Component, ModuleWithComponentFactories, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
 export interface Day {

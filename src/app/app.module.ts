@@ -14,8 +14,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { AgmCoreModule } from '@agm/core';
-
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GoogleMapsModule } from '@angular/google-maps';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -39,6 +45,16 @@ import { GoogleMapsModule } from '@angular/google-maps';
       libraries: ['places'],
     }),
     GoogleMapsModule,
+
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      defaultLanguage: 'en',
+    }),
   ],
 
   exports: [MatFormFieldModule, MatInputModule, MatSelectModule],

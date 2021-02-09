@@ -6,9 +6,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
   @Output() refreshClickFromHome = new EventEmitter();
   ngOnInit(): void {}
+
+  constructor() {}
 
   randomBg(): void {
     this.refreshClickFromHome.emit();
