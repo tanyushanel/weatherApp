@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -34,12 +34,13 @@ export class MainContentComponent implements OnInit {
   humidity: string;
   week: string;
 
-  abc: string;
+  @Input() abc: string;
 
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
     moment.locale(this.translate.currentLang);
+
     console.log(moment.locale());
     this.today = new Day();
 

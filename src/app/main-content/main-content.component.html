@@ -3,7 +3,7 @@
     <p class="time"> <span> {{ today.time }} </span> </p>
 
     <div>
-        <span class="temp"> {{ 10 | tempConverter: '{{degreeType}}'' }}<span class="degree-icon">&deg;</span>
+        <span class="temp"> {{ 10 | tempConverter: abc }} <span class="degree-icon">&deg;</span>
             <img class="icon"
                  src="../../assets/clouds.png">
         </span>
@@ -19,21 +19,21 @@
         <li class="week">
             <p> {{'FORECAST.tomorrow' | translate}} </p>
             <div>
-                <span class="week-temp"> 7&deg;<img src="../../assets/clouds.png"></span>
+                <span class="week-temp"> {{ 7 | tempConverter: abc }}&deg;<img src="../../assets/clouds.png"></span>
 
             </div>
         </li>
         <li class="week">
             <p> {{'FORECAST.in one day' | translate}} </p>
             <div>
-                <span class="week-temp"> 56&deg;<img src="../../assets/clouds.png"></span>
+                <span class="week-temp"> {{ 15 | tempConverter: abc }}&deg;<img src="../../assets/clouds.png"></span>
 
             </div>
         </li>
         <li class="week">
             <p> {{ 'FORECAST.in two days' | translate }} </p>
             <div>
-                <span class="week-temp"> 6&deg;<img src="../../assets/clouds.png"></span>
+                <span class="week-temp"> {{ 5 | tempConverter: abc }}&deg;<img src="../../assets/clouds.png"></span>
             </div>
         </li>
     </ul>

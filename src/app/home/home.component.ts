@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +8,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HomeComponent implements OnInit {
   @Output() refreshClickFromHome = new EventEmitter();
 
-  my123: string;
+  @Input() my123: string;
 
   ngOnInit(): void {
+    this.my123 = 'C';
     window.setInterval(this.testTimer.bind(this), 1000);
   }
 

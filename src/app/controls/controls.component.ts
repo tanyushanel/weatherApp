@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./controls.component.scss'],
 })
 export class ControlsComponent implements OnInit {
-  degreeType: string = 'c';
+  @Input() degreeType: string;
   @Output() degreeTypeChanged = new EventEmitter<string>();
 
   @Output() refreshClickFromControls = new EventEmitter();
@@ -20,13 +20,15 @@ export class ControlsComponent implements OnInit {
     translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.degreeType = 'C';
+  }
 
   refreshBg(): void {
     this.refreshClickFromControls.emit();
   }
 
-  changeDegreeType(): void {
-    this.degreeTypeChanged.emit(this.degreeType);
+  changeDegreeType(event): void {
+    this.degreeTypeChanged.emit(event);
   }
 }

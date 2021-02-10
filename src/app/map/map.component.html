@@ -4,18 +4,14 @@
         <google-map height="400px"
                     width="100%"
                     [zoom]="zoom">
-            <agm-marker *ngFor="let m of markers; let i = index"
+            <!-- <agm-marker *ngFor="let m of markers; let i = index"
                         (markerClick)="clickedMarker(m.label, i)"
                         [latitude]="m.lat"
                         [longitude]="m.lng"
                         [label]="m.label"
                         [markerDraggable]="m.draggable"
                         (dragEnd)="markerDragEnd(m, $event)">
-
-
-
-            </agm-marker>
-
+            </agm-marker> -->
         </google-map>
     </div>
     <p class="latitude"> {{ 'COORDS.latitude' | translate }} </p>

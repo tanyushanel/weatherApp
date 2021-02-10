@@ -1,13 +1,13 @@
 <header class="header">
+    <h1>WeatherApp</h1>
     <app-controls (refreshClickFromControls)="randomBg()"
-                  (degreeTypeChanged)="my123Chande($event)"></app-controls>
+                  (degreeTypeChanged)="homeDegreeChange($event)"
+                  [degreeType]="my123"></app-controls>
     <app-search></app-search>
 </header>
 
-<main class="main"
-      [abc]="my123">
-    <h1>WeatherApp</h1>
-    <app-main-content></app-main-content>
+<main class="main">
+    <app-main-content [abc]="my123"></app-main-content>
     <app-map></app-map>
 </main>
 

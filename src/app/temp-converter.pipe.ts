@@ -8,13 +8,13 @@ export class TempConverterPipe implements PipeTransform {
     if (value && !isNaN(value)) {
       if (unit === 'C') {
         var tempareature = (value - 32) / 1.8;
-        return tempareature.toFixed(2);
+        return tempareature.toFixed(0);
       }
       if (unit === 'F') {
         var tempareature = value * 32 + 1.8;
-        return tempareature.toFixed(2);
+        return tempareature.toFixed(0);
       }
     }
-    return;
+    return value;
   }
 }
