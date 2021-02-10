@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -8,24 +9,32 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class HomeComponent implements OnInit {
   @Output() refreshClickFromHome = new EventEmitter();
 
-  @Input() my123: string;
+  @Input() homeSelectedLang: string;
+  @Output() homeSelectedLangChange = new EventEmitter<string>();
 
-  ngOnInit(): void {
-    this.my123 = 'C';
-    window.setInterval(this.testTimer.bind(this), 1000);
+  @Input() homeDegreeType: string;
+
+  constructor(private translate: TranslateService) {
+    translate.addLangs(['en', 'ru']);
+    translate.setDefaultLang('en');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
-
-  constructor() {}
+  ngOnInit(): void {
+    this.homeDegreeType = 'C';
+    this.homeSelectedLang = this.translate.currentLang;
+    console.log('home *' + this.homeSelectedLang);
+  }
 
   randomBg(): void {
     this.refreshClickFromHome.emit();
   }
 
   homeDegreeChange(event: string): void {
-    this.my123 = event;
+    this.homeDegreeType = event;
   }
 
-  testTimer() {
-    console.log(this.my123);
+  homeLangChange(): void {
+    this.homeSelectedLangChange.emit(this.homeSelectedLang);
   }
 }

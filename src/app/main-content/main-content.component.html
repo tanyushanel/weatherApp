@@ -2,8 +2,8 @@
     <h2 class="city"> {{ 'PLACE.city' | translate }}, {{ 'PLACE.country' | translate }}</h2>
     <p class="time"> <span> {{ today.time }} </span> </p>
 
-    <div>
-        <span class="temp"> {{ 10 | tempConverter: abc }} <span class="degree-icon">&deg;</span>
+    <div class="temp-container">
+        <span class="temp"> {{ 10 | tempConverter: mainDegreeType }} <span class="degree-icon">&deg;</span>
             <img class="icon"
                  src="../../assets/clouds.png">
         </span>
@@ -19,21 +19,24 @@
         <li class="week">
             <p> {{'FORECAST.tomorrow' | translate}} </p>
             <div>
-                <span class="week-temp"> {{ 7 | tempConverter: abc }}&deg;<img src="../../assets/clouds.png"></span>
+                <span class="week-temp"> {{ 7 | tempConverter: mainDegreeType }}&deg;<img
+                         src="../../assets/clouds.png"></span>
 
             </div>
         </li>
         <li class="week">
             <p> {{'FORECAST.in one day' | translate}} </p>
             <div>
-                <span class="week-temp"> {{ 15 | tempConverter: abc }}&deg;<img src="../../assets/clouds.png"></span>
+                <span class="week-temp"> {{ 15 | tempConverter: mainDegreeType }}&deg;<img
+                         src="../../assets/clouds.png"></span>
 
             </div>
         </li>
         <li class="week">
             <p> {{ 'FORECAST.in two days' | translate }} </p>
             <div>
-                <span class="week-temp"> {{ 5 | tempConverter: abc }}&deg;<img src="../../assets/clouds.png"></span>
+                <span class="week-temp"> {{ 5 | tempConverter: mainDegreeType }}&deg;<img
+                         src="../../assets/clouds.png"></span>
             </div>
         </li>
     </ul>

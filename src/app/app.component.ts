@@ -1,3 +1,4 @@
+import { CDK_CONNECTED_OVERLAY_SCROLL_STRATEGY_PROVIDER_FACTORY } from '@angular/cdk/overlay/overlay-directives';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -14,11 +15,13 @@ export class AppComponent {
     '../assets/bg-3.png',
   ];
   randomBg: string = this.bgImages[0];
+  isToChange: boolean = true;
 
   changeBg(): void {
     this.randomBg = this.bgImages[
       Math.floor(Math.random() * this.bgImages.length)
     ];
+    this.isToChange != this.isToChange;
   }
 
   constructor() {}

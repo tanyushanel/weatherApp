@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+} from '@angular/core';
 import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -21,28 +28,24 @@ export class City {
   templateUrl: './main-content.component.html',
   styleUrls: ['./main-content.component.scss'],
 })
-export class MainContentComponent implements OnInit {
+export class MainContentComponent implements OnInit, OnChanges {
   today: Day;
 
-  city: string;
-  country: string;
-  temp: string;
-  time: moment.Moment;
-
-  feel: string;
-  wind: string;
-  humidity: string;
-  week: string;
-
-  @Input() abc: string;
+  @Input() mainSelectedLang: string;
+  @Input() mainDegreeType: string;
 
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
-    moment.locale(this.translate.currentLang);
+    moment.locale(this.mainSelectedLang);
 
-    console.log(moment.locale());
     this.today = new Day();
+
+    this.today.time = moment().format('MMMM Do YYYY, h:mm ');
+  }
+
+  ngOnChanges(): void {
+    moment.locale(this.mainSelectedLang);
 
     this.today.time = moment().format('MMMM Do YYYY, h:mm ');
   }

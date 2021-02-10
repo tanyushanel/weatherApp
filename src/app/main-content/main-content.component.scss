@@ -42,6 +42,10 @@
   }
 }
 
+.temp-container {
+  position: relative;
+}
+
 .cast {
   white-space: nowrap;
   font-size: 1.2rem;
@@ -49,7 +53,9 @@
   font-weight: 700;
 
   &.overcast {
-    margin-left: 5.25rem;
+    position: absolute;
+    margin-left: 3rem;
+    bottom: 5rem;
   }
 
   & .week {
