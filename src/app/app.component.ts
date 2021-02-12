@@ -22,13 +22,17 @@ export class AppComponent {
     '../assets/bg-2.png',
     '../assets/bg-3.png',
   ];
-  randomBg: string = this.bgImages[0];
+
+  i: number = 0;
+  randomBg: string = this.bgImages[this.i];
   isToChange: boolean = true;
 
   changeBg(): void {
     this.randomBg = this.bgImages[
-      Math.floor(Math.random() * this.bgImages.length)
+      // Math.floor(Math.random() * this.bgImages.length)
+      this.i < 3 ? this.i++ : (this.i = 0)
     ];
+
     this.isToChange != this.isToChange;
   }
 
