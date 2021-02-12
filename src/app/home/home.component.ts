@@ -1,5 +1,7 @@
+import { WeatherService } from './../weather.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { WeatherData } from '../weather.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +16,12 @@ export class HomeComponent implements OnInit {
 
   @Input() homeDegreeType: string;
 
-  constructor(private translate: TranslateService) {
+  homeWeatherData: WeatherData;
+
+  constructor(
+    private translate: TranslateService,
+    private weatherService: WeatherService
+  ) {
     translate.addLangs(['en', 'ru']);
     translate.setDefaultLang('en');
     const browserLang = translate.getBrowserLang();
@@ -23,7 +30,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.homeDegreeType = 'C';
     this.homeSelectedLang = this.translate.currentLang;
-    console.log('home *' + this.homeSelectedLang);
+
+    this.homeWeatherData = this.weatherService.weatherData;
   }
 
   randomBg(): void {

@@ -22,5 +22,6 @@
         "COORDS": {
             "latitude": "Latitude: ",
             "longitude": "Longitude: "
-    }
+    },
+    "unit": "m/s"
 }

@@ -1,3 +1,4 @@
+import { WeatherData, WeatherService } from './../weather.service';
 import {
   Component,
   EventEmitter,
@@ -9,44 +10,35 @@ import {
 import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
 
-export class Day {
-  time?: string;
-  feels?: string;
-  wind?: string;
-  humidity?: string;
-}
-
-export class City {
-  city: string;
-  country: string;
-  time?: moment.Moment;
-  locale?: string;
-}
-
 @Component({
   selector: 'app-main-content',
   templateUrl: './main-content.component.html',
   styleUrls: ['./main-content.component.scss'],
 })
 export class MainContentComponent implements OnInit, OnChanges {
-  today: Day;
-
   @Input() mainSelectedLang: string;
   @Input() mainDegreeType: string;
 
-  constructor(private translate: TranslateService) {}
+  mainWeatherData: WeatherData;
+
+  today: string;
+  tomorrow: string;
+  afterTomor: string;
+
+  constructor(
+    private translate: TranslateService,
+    private weatherService: WeatherService
+  ) {}
 
   ngOnInit(): void {
     moment.locale(this.mainSelectedLang);
+    this.today = moment().format('MMMM Do YYYY, h:mm ');
 
-    this.today = new Day();
-
-    this.today.time = moment().format('MMMM Do YYYY, h:mm ');
+    this.mainWeatherData = this.weatherService.weatherData;
   }
 
   ngOnChanges(): void {
     moment.locale(this.mainSelectedLang);
-
-    this.today.time = moment().format('MMMM Do YYYY, h:mm ');
+    this.today = moment().format('MMMM Do YYYY, h:mm ');
   }
 }

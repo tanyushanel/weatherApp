@@ -1,5 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
+import { TranslateService } from '@ngx-translate/core';
+import { WeatherData, WeatherService } from '../weather.service';
+
+interface marker {
+  lat: number;
+  lng: number;
+  label?: string;
+  draggable: boolean;
+}
 
 @Component({
   selector: 'app-map',
@@ -7,12 +16,22 @@ import { AgmCoreModule } from '@agm/core';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
+  mapWeatherData: WeatherData = this.weatherService.weatherData;
   // google maps zoom level
   zoom: number = 8;
 
   // initial center position for the map
   lat: number = 51.673858;
   lng: number = 7.815982;
+
+  constructor(
+    private translate: TranslateService,
+    private weatherService: WeatherService
+  ) {}
+
+  ngOnInit(): void {
+    this.mapWeatherData = this.weatherService.weatherData;
+  }
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`);
@@ -50,14 +69,4 @@ export class MapComponent implements OnInit {
       draggable: true,
     },
   ];
-
-  ngOnInit(): void {}
-}
-
-// just an interface for type safety.
-interface marker {
-  lat: number;
-  lng: number;
-  label?: string;
-  draggable: boolean;
 }

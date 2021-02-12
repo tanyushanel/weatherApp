@@ -22,6 +22,6 @@
         "COORDS": {
             "latitude": "Широта: ",
             "longitude": "Долгота: "
-    }
-
+    },
+    "unit": "м/с"
 }

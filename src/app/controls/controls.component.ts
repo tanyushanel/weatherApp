@@ -20,18 +20,17 @@ export class ControlsComponent implements OnInit {
   ngOnInit(): void {
     this.degreeType = 'C';
     this.selectedLang = this.translate.currentLang;
-    console.log('control ' + this.selectedLang);
   }
 
   refreshBg(): void {
     this.refreshClickFromControls.emit();
   }
 
-  changeDegreeType(event): void {
+  changeDegreeType(event: string): void {
     this.degreeTypeChanged.emit(event);
   }
 
-  change(event) {
+  change(event: string) {
     this.selectedLangChange.emit(event);
   }
 }
