@@ -11,8 +11,11 @@
 }
 
 .time {
-  text-transform: capitalize;
   margin: 0;
+}
+
+.time span {
+  text-transform: capitalize;
 }
 
 .temp,
@@ -50,31 +53,39 @@
   white-space: nowrap;
   font-size: 1.2rem;
   line-height: 2rem;
-  font-weight: 700;
 
   &.overcast {
     position: absolute;
     margin-left: 3rem;
     bottom: 5rem;
+    font-weight: 700;
   }
 
   & .week {
     margin-right: 6rem;
+    font-weight: 700;
   }
-}
 
-.week span {
-  font-size: 4rem;
-  font-weight: 600;
-  line-height: 6rem;
-}
-.week img {
-  position: absolute;
-  transform: scale(0.35);
-  top: -1.5rem;
-  right: -7rem;
-  z-index: 0;
-}
-.week-temp {
-  position: relative;
+  & .week span {
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+
+  & .week .week-temp {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 6rem;
+  }
+
+  & .week img {
+    position: absolute;
+    transform: scale(0.35);
+    top: -1.5rem;
+    right: -7rem;
+    z-index: 0;
+  }
+
+  & .week-temp {
+    position: relative;
+  }
 }

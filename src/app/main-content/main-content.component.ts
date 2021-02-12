@@ -23,7 +23,8 @@ export class MainContentComponent implements OnInit, OnChanges {
 
   today: string;
   tomorrow: string;
-  afterTomor: string;
+  inOneDay: string;
+  inTwoDays: string;
 
   constructor(
     private translate: TranslateService,
@@ -34,11 +35,18 @@ export class MainContentComponent implements OnInit, OnChanges {
     moment.locale(this.mainSelectedLang);
     this.today = moment().format('MMMM Do YYYY, h:mm ');
 
+    this.tomorrow = moment().add(1, 'days').format('ddd MMM Do');
+    this.inOneDay = moment().add(2, 'days').format('ddd MMM Do');
+    this.inTwoDays = moment().add(3, 'days').format('ddd MMM Do');
     this.mainWeatherData = this.weatherService.weatherData;
   }
 
   ngOnChanges(): void {
     moment.locale(this.mainSelectedLang);
     this.today = moment().format('MMMM Do YYYY, h:mm ');
+
+    this.tomorrow = moment().add(1, 'days').format('ddd MMM Do');
+    this.inOneDay = moment().add(2, 'days').format('ddd MMM Do');
+    this.inTwoDays = moment().add(3, 'days').format('ddd MMM Do');
   }
 }

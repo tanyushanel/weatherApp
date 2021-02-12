@@ -24,17 +24,13 @@ export class WeatherService {
   weatherData: WeatherData;
 
   today: string;
-  tomorrow: string;
-  afterTomor: string;
 
   constructor() {
-    this.today = moment().format('MMMM Do YYYY, h:mm ');
+    this.today = moment().format('MMMM Do YYYY, h:mm');
 
     this.weatherData = new WeatherData();
 
     this.getWeatherData(this.today);
-    this.tomorrow = moment().add(1, 'days').calendar();
-    this.afterTomor = moment().add(2, 'days').calendar();
   }
 
   getWeatherData(day: any): any {

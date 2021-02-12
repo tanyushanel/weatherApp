@@ -23,8 +23,8 @@
     </div>
     <ul class="cast forecast">
         <li class="week">
-            <p> {{'FORECAST.tomorrow' | translate}} </p>
-            <p>{{ tomorrow }}</p>
+            <p class="time"> {{'FORECAST.tomorrow' | translate}} </p>
+            <span>{{ tomorrow }}</span>
             <div>
                 <span class="week-temp"> {{ 7 | tempConverter: mainDegreeType }}&deg;<img
                          src="../../assets/clouds.png"></span>
@@ -32,8 +32,8 @@
             </div>
         </li>
         <li class="week">
-            <p> {{'FORECAST.in one day' | translate}} </p>
-            <p> {{ afterTomor }} </p>
+            <p class="time"> {{'FORECAST.in one day' | translate}} </p>
+            <span> {{ inOneDay }} </span>
             <div>
                 <span class="week-temp"> {{ 15 | tempConverter: mainDegreeType }}&deg;<img
                          src="../../assets/clouds.png"></span>
@@ -41,8 +41,8 @@
             </div>
         </li>
         <li class="week">
-            <p> {{ 'FORECAST.in two days' | translate }} </p>
-
+            <p class="time"> {{ 'FORECAST.in two days' | translate }} </p>
+            <span> {{ inTwoDays }} </span>
             <div>
                 <span class="week-temp"> {{ 5 | tempConverter: mainDegreeType }}&deg;<img
                          src="../../assets/clouds.png"></span>
