@@ -3,9 +3,12 @@
     <p class="time"> <span> {{ today }} </span> </p>
 
     <div class="temp-container">
-        <span class="temp"> {{ 10 | tempConverter: mainDegreeType }} <span class="degree-icon">&deg;</span>
-            <img class="icon"
-                 src="../../assets/clouds.png">
+        <span class="temp"> {{ mainWeatherData.temp | tempConverter: mainDegreeType }}
+            <span class="degree-icon">&deg;</span>
+            <app-icon [weatherData]="mainWeatherData"></app-icon>
+
+
+
         </span>
 
         <ul class="cast overcast">
@@ -26,8 +29,9 @@
             <p class="time"> {{'FORECAST.tomorrow' | translate}} </p>
             <span>{{ tomorrow }}</span>
             <div>
-                <span class="week-temp"> {{ 7 | tempConverter: mainDegreeType }}&deg;<img
-                         src="../../assets/clouds.png"></span>
+                <span class="week-temp"> {{ mainWeatherData.temp | tempConverter: mainDegreeType }}&deg;
+                    <app-icon [weatherData]="mainWeatherData"></app-icon>
+                </span>
 
             </div>
         </li>
@@ -35,8 +39,9 @@
             <p class="time"> {{'FORECAST.in one day' | translate}} </p>
             <span> {{ inOneDay }} </span>
             <div>
-                <span class="week-temp"> {{ 15 | tempConverter: mainDegreeType }}&deg;<img
-                         src="../../assets/clouds.png"></span>
+                <span class="week-temp"> {{ mainWeatherData.temp | tempConverter: mainDegreeType }}&deg;
+                    <app-icon [weatherData]="mainWeatherData"></app-icon>
+                </span>
 
             </div>
         </li>
@@ -44,8 +49,9 @@
             <p class="time"> {{ 'FORECAST.in two days' | translate }} </p>
             <span> {{ inTwoDays }} </span>
             <div>
-                <span class="week-temp"> {{ 5 | tempConverter: mainDegreeType }}&deg;<img
-                         src="../../assets/clouds.png"></span>
+                <span class="week-temp"> {{ mainWeatherData.temp | tempConverter: mainDegreeType }}&deg;
+                    <app-icon [weatherData]="mainWeatherData"></app-icon>
+                </span>
             </div>
         </li>
     </ul>

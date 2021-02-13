@@ -21,6 +21,7 @@
 .temp,
 .overcast {
   display: inline-block;
+  z-index: 3;
 }
 
 .temp {
@@ -35,13 +36,6 @@
     right: -3.5rem;
     font-size: 5.5rem;
     z-index: 3;
-  }
-
-  & .icon {
-    position: absolute;
-    transform: scale(0.9);
-    top: 1rem;
-    z-index: 2;
   }
 }
 
@@ -75,17 +69,14 @@
     font-size: 4rem;
     font-weight: 700;
     line-height: 6rem;
-  }
-
-  & .week img {
-    position: absolute;
-    transform: scale(0.35);
-    top: -1.5rem;
-    right: -7rem;
-    z-index: 0;
-  }
-
-  & .week-temp {
     position: relative;
+  }
+
+  & .week app-icon {
+    position: absolute;
+    transform: scale(0.5);
+    top: -1.5rem;
+    left: 7rem;
+    z-index: 0;
   }
 }

@@ -1,0 +1,8 @@
+<img *ngIf="weatherData.overcast > 0.5 && isDay"
+     src="../../assets/sun-cloud-.png">
+<img *ngIf="weatherData.overcast > 0.5 && !isDay"
+     src="../../assets/moon-cloud-.png">
+<img *ngIf="!(weatherData.overcast > 0.5) && isDay"
+     src="../../assets/sun-.png">
+<img *ngIf="!(weatherData.overcast > 0.5) && !isDay"
+     src="../../assets/moon-.png">
