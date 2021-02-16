@@ -1,6 +1,58 @@
-img {
+span {
   position: absolute;
-  transform: scale(0.9);
-  top: 1rem;
+  transform: scale(4);
+  transform: scale(4);
+  right: -5rem;
+  top: 4rem;
+  // z-index: 0;
+}
+
+.sun {
   z-index: 0;
+  right: -7rem;
+  top: 3rem;
+  color: rgb(255, 255, 0);
+  filter: drop-shadow(1px 1px 5px rgb(255, 255, 0));
+}
+
+.moon {
+  z-index: 0;
+  right: -7rem;
+  top: 3rem;
+  color: rgb(245, 245, 137);
+  filter: drop-shadow(1px 1px 5px rgb(245, 245, 137));
+}
+
+.cloud {
+  z-index: 1;
+  color: rgb(177, 237, 245);
+  filter: drop-shadow(1px 1px 5px rgb(177, 237, 245));
+
+  animation-name: cloudMovement;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes cloudMovement {
+  from {
+    right: -5rem;
+  }
+  to {
+    right: -6rem;
+  }
+}
+
+.rain {
+  top: 7rem;
+  z-index: 0;
+  color: rgb(152, 236, 247);
+  filter: drop-shadow(1px 0px 5px rgb(152, 236, 247));
+
+  animation-name: cloudMovement;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
 }
