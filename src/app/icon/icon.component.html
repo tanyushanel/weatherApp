@@ -1,19 +1,19 @@
 <span class="material-icons sun"
       *ngIf="isDay">
-     wb_sunny
+      wb_sunny
 </span>
 
 <span class="material-icons moon"
       *ngIf="!isDay">
-     nightlight_round
+      nightlight_round
 </span>
 
 <span class="material-icons cloud"
-      *ngIf="weatherData.overcast > 0.5">
-     wb_cloudy
+      *ngIf="weatherData.overcast && weatherData.overcast > 0.5">
+      wb_cloudy
 </span>
 
 <span class="material-icons rain"
-      *ngIf="weatherData.humidity > 0.9">
-     drag_indicator
+      *ngIf="weatherData.rain && weatherData.rain > 0.3">
+      drag_indicator
 </span>

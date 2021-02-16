@@ -52,7 +52,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       libraries: ['places'],
     }),
     GoogleMapsModule,
-
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

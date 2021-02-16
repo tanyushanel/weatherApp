@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { AgmCoreModule } from '@agm/core';
 import { TranslateService } from '@ngx-translate/core';
 import { WeatherData, WeatherService } from '../weather.service';
@@ -16,7 +16,7 @@ interface marker {
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-  mapWeatherData: WeatherData = this.weatherService.weatherData;
+  mapWeatherData: WeatherData;
   // google maps zoom level
   zoom: number = 8;
 
@@ -30,7 +30,11 @@ export class MapComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.mapWeatherData = this.weatherService.weatherData;
+    this.weatherService.weatherDataSubject.subscribe(
+      (weatherData: WeatherData) => {
+        this.mapWeatherData = weatherData;
+      }
+    );
   }
 
   clickedMarker(label: string, index: number) {

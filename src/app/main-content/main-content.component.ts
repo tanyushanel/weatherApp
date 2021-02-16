@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
+import { WeekDay } from '@angular/common';
 
 @Component({
   selector: 'app-main-content',
@@ -38,7 +39,14 @@ export class MainContentComponent implements OnInit, OnChanges {
     this.tomorrow = moment().add(1, 'days').format('ddd MMM Do');
     this.inOneDay = moment().add(2, 'days').format('ddd MMM Do');
     this.inTwoDays = moment().add(3, 'days').format('ddd MMM Do');
-    this.mainWeatherData = this.weatherService.weatherData;
+
+    this.weatherService.weatherDataSubject.subscribe(
+      (weatherData: WeatherData) => {
+        this.mainWeatherData = weatherData;
+      }
+    );
+
+    this.weatherService.getWeatherData(this.mainSelectedLang);
   }
 
   ngOnChanges(): void {

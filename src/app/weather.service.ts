@@ -1,8 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Input, Output } from '@angular/core';
 import * as moment from 'moment';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 export class WeatherData {
-  date: string;
   temp: number;
   city: string;
   country: string;
@@ -15,6 +16,7 @@ export class WeatherData {
     lng: string;
   };
   overcast: number;
+  rain: number;
 }
 
 @Injectable({
@@ -22,39 +24,40 @@ export class WeatherData {
 })
 export class WeatherService {
   weatherData: WeatherData;
+  weatherDataSubject = new BehaviorSubject<WeatherData>(null);
 
   today: string;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.today = moment().format('MMMM Do YYYY, h:mm');
-
     this.weatherData = new WeatherData();
-
-    this.getWeatherData(this.today);
   }
 
-  getWeatherData(day: any): any {
-    let data = JSON.parse(
-      '{ "coord": {    "lon": -122.08,    "lat": 37.39  },  "weather": [    {      "id": 800,      "main": "Clear",    "description": "clear sky",      "icon": "01d"    }],  "base": "stations",  "main": {    "temp": 282.55,    "feels_like": 281.86,    "temp_min": 280.37,    "temp_max": 284.26,    "pressure": 1023,    "humidity": 100  },  "visibility": 16093,  "wind": {    "speed": 1.5,    "deg": 350  },  "clouds": {    "all": 1  },  "dt": 1560350645,  "sys": {    "type": 1,    "id": 5122,    "message": 0.0139,    "country": "US",    "sunrise": 1560343627,    "sunset": 1560396563  },  "timezone": -25200,  "id": 420006353,  "name": "Mountain View",  "cod": 200      }'
-    );
-    this.setWeatherData(data);
+  getWeatherData(lang: string): void {
+    let subscriber = this.http
+      .get<any>(
+        `http://api.openweathermap.org/data/2.5/find?q=Minsk&appid=2ab8e34518940df98867eedb0c64a5cb&lang=${lang}`
+      )
+      .subscribe((res: any) => {
+        this.setWeatherData(res.list[0]);
+        this.weatherDataSubject.next(this.weatherData);
+      });
   }
 
-  setWeatherData(data): any {
+  setWeatherData(data: any): any {
     this.weatherData = {
-      date: moment(this.today).format(),
       coords: {
         lat: data.coord.lat.toString(),
         lng: data.coord.lon.toString(),
       },
       city: data.name,
       country: data.sys.country,
-
       temp: data.main.temp - 273.15,
       feels: data.main.feels_like - 273.15,
       wind: data.wind.speed,
       humidity: data.main.humidity,
-      overcast: data.clouds.all * 100,
+      overcast: data.clouds.all,
+      rain: data.rain,
     };
   }
 }
