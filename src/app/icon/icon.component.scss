@@ -1,10 +1,8 @@
 span {
   position: absolute;
   transform: scale(4);
-  transform: scale(4);
   right: -5rem;
   top: 4rem;
-  // z-index: 0;
 }
 
 .sun {
@@ -13,6 +11,21 @@ span {
   top: 3rem;
   color: rgb(255, 255, 0);
   filter: drop-shadow(1px 1px 5px rgb(255, 255, 0));
+
+  animation-name: sunMovement;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+
+@keyframes sunMovement {
+  from {
+    transform: rotate(45deg) scale(4);
+  }
+  to {
+    transform: rotate(-45deg) scale(3);
+  }
 }
 
 .moon {

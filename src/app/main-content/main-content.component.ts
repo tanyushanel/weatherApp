@@ -1,15 +1,7 @@
 import { WeatherData, WeatherService } from './../weather.service';
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { TranslateService } from '@ngx-translate/core';
-import { WeekDay } from '@angular/common';
 
 @Component({
   selector: 'app-main-content',
@@ -34,7 +26,7 @@ export class MainContentComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     moment.locale(this.mainSelectedLang);
-    this.today = moment().format('MMMM Do YYYY, h:mm ');
+    this.today = moment().format('MMMM Do YYYY, h:mm');
 
     this.tomorrow = moment().add(1, 'days').format('ddd MMM Do');
     this.inOneDay = moment().add(2, 'days').format('ddd MMM Do');
@@ -51,7 +43,7 @@ export class MainContentComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     moment.locale(this.mainSelectedLang);
-    this.today = moment().format('MMMM Do YYYY, h:mm ');
+    this.today = moment().format('MMMM Do YYYY, h:mm');
 
     this.tomorrow = moment().add(1, 'days').format('ddd MMM Do');
     this.inOneDay = moment().add(2, 'days').format('ddd MMM Do');
