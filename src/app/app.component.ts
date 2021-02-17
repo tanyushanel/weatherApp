@@ -26,7 +26,6 @@ export class AppComponent {
     this.randomBg = this.bgImages[this.i];
 
     this.isToChange != this.isToChange;
-    console.log(this.randomBg);
   }
 
   constructor() {}
