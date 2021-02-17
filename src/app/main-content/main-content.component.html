@@ -1,5 +1,7 @@
 <div class="main-container">
-    <h2 class="city"> {{ 'PLACE.city' | translate }}, {{ 'PLACE.country' | translate }}</h2>
+    <h2 class="city"> {{ mainWeatherData.city || 'PLACE.city' | translate }}, {{ mainWeatherData.country ||
+        'PLACE.country' | translate }}
+    </h2>
     <p class="time"> <span> {{ today }} </span> </p>
 
     <div class="temp-container">

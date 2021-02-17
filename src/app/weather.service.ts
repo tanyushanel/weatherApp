@@ -29,14 +29,14 @@ export class WeatherService {
   today: string;
 
   constructor(private http: HttpClient) {
-    this.today = moment().format('MMMM Do YYYY, h:mm');
+    this.today = moment().format('MMMM DD YYYY, h:mm');
     this.weatherData = new WeatherData();
   }
 
-  getWeatherData(lang: string): void {
-    let subscriber = this.http
+  getWeatherData(lang: string, cityName: string = 'Minsk'): void {
+    this.http
       .get<any>(
-        `http://api.openweathermap.org/data/2.5/find?q=Minsk&appid=2ab8e34518940df98867eedb0c64a5cb&lang=${lang}`
+        `http://api.openweathermap.org/data/2.5/find?q=${cityName}&appid=2ab8e34518940df98867eedb0c64a5cb&lang=${lang}`
       )
       .subscribe((res: any) => {
         this.setWeatherData(res.list[0]);

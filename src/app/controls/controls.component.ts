@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -8,12 +15,12 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ControlsComponent implements OnInit {
   @Input() selectedLang: string;
-  @Output() selectedLangChange = new EventEmitter<string>();
+  @Output() onChangeSelectedLang = new EventEmitter<string>();
 
   @Input() degreeType: string;
-  @Output() degreeTypeChanged = new EventEmitter<string>();
+  @Output() onChangedDegreeType = new EventEmitter<string>();
 
-  @Output() refreshClickFromControls = new EventEmitter();
+  @Output() onRefreshClickFromControls = new EventEmitter();
 
   constructor(public translate: TranslateService) {}
 
@@ -23,14 +30,14 @@ export class ControlsComponent implements OnInit {
   }
 
   refreshBg(): void {
-    this.refreshClickFromControls.emit();
+    this.onRefreshClickFromControls.emit();
   }
 
   changeDegreeType(event: string): void {
-    this.degreeTypeChanged.emit(event);
+    this.onChangedDegreeType.emit(event);
   }
 
   change(event: string) {
-    this.selectedLangChange.emit(event);
+    this.onChangeSelectedLang.emit(event);
   }
 }

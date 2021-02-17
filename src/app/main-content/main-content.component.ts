@@ -26,11 +26,11 @@ export class MainContentComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     moment.locale(this.mainSelectedLang);
-    this.today = moment().format('MMMM Do YYYY, h:mm');
+    this.today = moment().format('MMMM DD YYYY, h:mm');
 
-    this.tomorrow = moment().add(1, 'days').format('ddd MMM Do');
-    this.inOneDay = moment().add(2, 'days').format('ddd MMM Do');
-    this.inTwoDays = moment().add(3, 'days').format('ddd MMM Do');
+    this.tomorrow = moment().add(1, 'days').format('ddd MMM DD');
+    this.inOneDay = moment().add(2, 'days').format('ddd MMM DD');
+    this.inTwoDays = moment().add(3, 'days').format('ddd MMM DD');
 
     this.weatherService.weatherDataSubject.subscribe(
       (weatherData: WeatherData) => {
@@ -39,14 +39,24 @@ export class MainContentComponent implements OnInit, OnChanges {
     );
 
     this.weatherService.getWeatherData(this.mainSelectedLang);
+    console.log(`main init ${this.mainSelectedLang}`);
   }
 
   ngOnChanges(): void {
     moment.locale(this.mainSelectedLang);
-    this.today = moment().format('MMMM Do YYYY, h:mm');
+    this.today = moment().format('MMMM DD YYYY, h:mm');
 
-    this.tomorrow = moment().add(1, 'days').format('ddd MMM Do');
-    this.inOneDay = moment().add(2, 'days').format('ddd MMM Do');
-    this.inTwoDays = moment().add(3, 'days').format('ddd MMM Do');
+    this.tomorrow = moment().add(1, 'days').format('ddd MMM DD');
+    this.inOneDay = moment().add(2, 'days').format('ddd MMM DD');
+    this.inTwoDays = moment().add(3, 'days').format('ddd MMM DD');
+
+    this.weatherService.weatherDataSubject.subscribe(
+      (weatherData: WeatherData) => {
+        this.mainWeatherData = weatherData;
+      }
+    );
+
+    this.weatherService.getWeatherData(this.mainSelectedLang);
+    console.log(`main ch ${this.mainSelectedLang}`);
   }
 }

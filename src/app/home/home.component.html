@@ -1,10 +1,10 @@
 <header class="header">
     <h1>WeatherApp</h1>
     <app-controls [degreeType]="homeDegreeType"
-                  [(selectedLang)]="homeSelectedLang"
-                  (refreshClickFromControls)="randomBg()"
-                  (degreeTypeChanged)="homeDegreeChange($event)"
-                  (selectedLangChange)="homeLangChange()"></app-controls>
+                  [selectedLang]="homeSelectedLang"
+                  (onRefreshClickFromControls)="randomBg()"
+                  (onChangedDegreeType)="homeDegreeChange($event)"
+                  (onChangeSelectedLang)="homeLangChange($event)"></app-controls>
     <app-search></app-search>
 </header>
 

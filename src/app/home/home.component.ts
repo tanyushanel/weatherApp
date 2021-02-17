@@ -1,5 +1,12 @@
 import { WeatherService } from './../weather.service';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { WeatherData } from '../weather.service';
 
@@ -9,14 +16,13 @@ import { WeatherData } from '../weather.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  @Output() refreshClickFromHome = new EventEmitter();
+  homeWeatherData: WeatherData;
+
+  @Output() onRefreshClickFromHome = new EventEmitter();
 
   @Input() homeSelectedLang: string;
-  @Output() homeSelectedLangChange = new EventEmitter<string>();
 
   @Input() homeDegreeType: string;
-
-  homeWeatherData: WeatherData;
 
   constructor(
     private translate: TranslateService,
@@ -28,21 +34,22 @@ export class HomeComponent implements OnInit {
     translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
   ngOnInit(): void {
+    this.homeWeatherData = this.weatherService.weatherData;
+
     this.homeDegreeType = 'C';
     this.homeSelectedLang = this.translate.currentLang;
-
-    this.homeWeatherData = this.weatherService.weatherData;
+    console.log(`hom ${this.homeSelectedLang}`);
   }
 
   randomBg(): void {
-    this.refreshClickFromHome.emit();
+    this.onRefreshClickFromHome.emit();
   }
 
   homeDegreeChange(event: string): void {
     this.homeDegreeType = event;
   }
 
-  homeLangChange(): void {
-    this.homeSelectedLangChange.emit(this.homeSelectedLang);
+  homeLangChange(event: string): void {
+    this.homeSelectedLang = event;
   }
 }

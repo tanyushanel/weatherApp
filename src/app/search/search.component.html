@@ -3,6 +3,7 @@
     <input type="text"
            placeholder="{{ 'SEARCH.placeholder' | translate }}"
            onclick="this.placeholder=''"
-           onblur="this.placeholder='Search city or ZIP'">
-    <span> {{ 'SEARCH.button' | translate }} </span>
+           onblur="this.placeholder='Search city or ZIP'"
+           [(ngModel)]="cityNameInput">
+    <span (click)="onSearchClick()"> {{ 'SEARCH.button' | translate }} </span>
 </div>

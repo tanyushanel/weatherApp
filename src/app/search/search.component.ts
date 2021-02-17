@@ -1,5 +1,12 @@
 import { WeatherData, WeatherService } from './../weather.service';
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  OnInit,
+  Output,
+  EventEmitter,
+  Input,
+} from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -7,10 +14,14 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
+  cityNameInput: string;
+
   weatherData: WeatherData;
   constructor(private weatherService: WeatherService) {}
 
-  ngOnInit(): void {
-    this.weatherData.city = this.weatherService.weatherData.city;
+  ngOnInit(): void {}
+
+  onSearchClick(): void {
+    this.weatherService.getWeatherData('en', this.cityNameInput);
   }
 }
