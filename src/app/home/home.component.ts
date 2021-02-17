@@ -18,6 +18,8 @@ import { WeatherData } from '../weather.service';
 export class HomeComponent implements OnInit {
   homeWeatherData: WeatherData;
 
+  homeCityName: string;
+
   @Output() onRefreshClickFromHome = new EventEmitter();
 
   @Input() homeSelectedLang: string;
@@ -50,5 +52,9 @@ export class HomeComponent implements OnInit {
 
   homeLangChange(event: string): void {
     this.homeSelectedLang = event;
+  }
+
+  cityNameChange(event: string): void {
+    this.homeCityName = event;
   }
 }

@@ -11,6 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class MainContentComponent implements OnInit, OnChanges {
   @Input() mainSelectedLang: string;
   @Input() mainDegreeType: string;
+  @Input() mainCityName: string;
 
   mainWeatherData: WeatherData;
 
@@ -40,6 +41,9 @@ export class MainContentComponent implements OnInit, OnChanges {
       }
     );
 
-    this.weatherService.getWeatherData(this.mainSelectedLang);
+    this.weatherService.getWeatherData(
+      this.mainSelectedLang,
+      this.mainCityName
+    );
   }
 }

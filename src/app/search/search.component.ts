@@ -16,6 +16,8 @@ import {
 export class SearchComponent implements OnInit {
   cityNameInput: string;
 
+  @Output() onCitySearched = new EventEmitter<string>();
+
   weatherData: WeatherData;
   constructor(private weatherService: WeatherService) {}
 
@@ -23,5 +25,6 @@ export class SearchComponent implements OnInit {
 
   onSearchClick(): void {
     this.weatherService.getWeatherData('en', this.cityNameInput);
+    this.onCitySearched.emit(this.cityNameInput);
   }
 }

@@ -5,12 +5,13 @@
                   (onRefreshClickFromControls)="randomBg()"
                   (onChangedDegreeType)="homeDegreeChange($event)"
                   (onChangeSelectedLang)="homeLangChange($event)"></app-controls>
-    <app-search></app-search>
+    <app-search (onCitySearched)="cityNameChange($event)"></app-search>
 </header>
 
 <main class="main">
     <app-main-content [mainDegreeType]="homeDegreeType"
-                      [mainSelectedLang]="homeSelectedLang"></app-main-content>
+                      [mainSelectedLang]="homeSelectedLang"
+                      [mainCityName]="homeCityName"></app-main-content>
     <app-map></app-map>
 </main>
 
