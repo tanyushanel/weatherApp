@@ -9,11 +9,11 @@
 </span>
 
 <span class="material-icons cloud"
-      *ngIf="weatherData.overcast && weatherData.overcast > 0.5">
+      *ngIf="weatherData?.overcast > 0.5">
       wb_cloudy
 </span>
 
 <span class="material-icons rain"
-      *ngIf="weatherData.rain && weatherData.rain > 0.3">
+      *ngIf="weatherData?.rain > 0.3">
       drag_indicator
 </span>

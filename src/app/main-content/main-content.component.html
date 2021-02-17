@@ -1,25 +1,26 @@
 <div class="main-container">
-    <h2 class="city"> {{ mainWeatherData.city || 'PLACE.city' | translate }}, {{ mainWeatherData.country ||
+    <h2 class="city"> {{ mainWeatherData?.city || 'PLACE.city' | translate }}, {{ mainWeatherData?.country ||
         'PLACE.country' | translate }}
     </h2>
     <p class="time"> <span> {{ today }} </span> </p>
 
     <div class="temp-container">
-        <span class="temp"> {{ mainWeatherData.temp | tempConverter: mainDegreeType }}
+        <span class="temp"> {{ mainWeatherData?.temp | tempConverter: mainDegreeType }}
             <span class="degree-icon">&deg;</span>
             <app-icon [weatherData]="mainWeatherData"></app-icon>
         </span>
 
         <ul class="cast overcast">
-            <li class="overcast"><span>{{ 'OVERCAST.overcast' | translate }} </span> <span>{{ mainWeatherData.overcast
+            <li class="overcast"><span>{{ 'OVERCAST.overcast' | translate }} </span> <span>{{ mainWeatherData?.overcast
                     }}%</span> </li>
-            <li class="feel"> <span>{{ 'OVERCAST.feels' | translate }} </span> <span> {{ mainWeatherData.feels |
-                    tempConverter: mainDegreeType }}&deg;
+            <li class="feel"> <span>{{ 'OVERCAST.feels' | translate }} </span> <span> {{
+                    mainWeatherData?.feels | tempConverter: mainDegreeType }}&deg;
                 </span> </li>
-            <li class="wind"> <span>{{ 'OVERCAST.wind' | translate }}</span> <span> {{ mainWeatherData.wind }} {{ 'unit'
+            <li class="wind"> <span>{{ 'OVERCAST.wind' | translate }}</span> <span> {{ mainWeatherData?.wind }} {{
+                    'unit'
                     | translate }} </span>
             </li>
-            <li class="hum"> <span>{{ 'OVERCAST.humidity' | translate }}</span> <span> {{ mainWeatherData.humidity }}%
+            <li class="hum"> <span>{{ 'OVERCAST.humidity' | translate }}</span> <span> {{ mainWeatherData?.humidity }}%
                 </span> </li>
         </ul>
     </div>
@@ -28,7 +29,7 @@
             <p class="time"> {{'FORECAST.tomorrow' | translate}} </p>
             <span>{{ tomorrow }}</span>
             <div>
-                <span class="week-temp"> {{ mainWeatherData.temp | tempConverter: mainDegreeType }}&deg;
+                <span class="week-temp"> {{ mainWeatherData?.temp | tempConverter: mainDegreeType }}&deg;
                     <app-icon [weatherData]="mainWeatherData"></app-icon>
                 </span>
 
@@ -38,7 +39,7 @@
             <p class="time"> {{'FORECAST.in one day' | translate}} </p>
             <span> {{ inOneDay }} </span>
             <div>
-                <span class="week-temp"> {{ mainWeatherData.temp | tempConverter: mainDegreeType }}&deg;
+                <span class="week-temp"> {{ mainWeatherData?.temp | tempConverter: mainDegreeType }}&deg;
                     <app-icon [weatherData]="mainWeatherData"></app-icon>
                 </span>
 
@@ -48,7 +49,7 @@
             <p class="time"> {{ 'FORECAST.in two days' | translate }} </p>
             <span> {{ inTwoDays }} </span>
             <div>
-                <span class="week-temp"> {{ mainWeatherData.temp | tempConverter: mainDegreeType }}&deg;
+                <span class="week-temp"> {{ mainWeatherData?.temp | tempConverter: mainDegreeType }}&deg;
                     <app-icon [weatherData]="mainWeatherData"></app-icon>
                 </span>
             </div>

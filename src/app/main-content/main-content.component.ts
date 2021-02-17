@@ -24,23 +24,7 @@ export class MainContentComponent implements OnInit, OnChanges {
     private weatherService: WeatherService
   ) {}
 
-  ngOnInit(): void {
-    moment.locale(this.mainSelectedLang);
-    this.today = moment().format('MMMM DD YYYY, h:mm');
-
-    this.tomorrow = moment().add(1, 'days').format('ddd MMM DD');
-    this.inOneDay = moment().add(2, 'days').format('ddd MMM DD');
-    this.inTwoDays = moment().add(3, 'days').format('ddd MMM DD');
-
-    this.weatherService.weatherDataSubject.subscribe(
-      (weatherData: WeatherData) => {
-        this.mainWeatherData = weatherData;
-      }
-    );
-
-    this.weatherService.getWeatherData(this.mainSelectedLang);
-    console.log(`main init ${this.mainSelectedLang}`);
-  }
+  ngOnInit(): void {}
 
   ngOnChanges(): void {
     moment.locale(this.mainSelectedLang);
@@ -57,6 +41,5 @@ export class MainContentComponent implements OnInit, OnChanges {
     );
 
     this.weatherService.getWeatherData(this.mainSelectedLang);
-    console.log(`main ch ${this.mainSelectedLang}`);
   }
 }

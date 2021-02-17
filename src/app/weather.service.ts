@@ -33,7 +33,7 @@ export class WeatherService {
     this.weatherData = new WeatherData();
   }
 
-  getWeatherData(lang: string, cityName: string = 'Minsk'): void {
+  getWeatherData(lang: string, cityName: string = 'Grodno'): void {
     this.http
       .get<any>(
         `http://api.openweathermap.org/data/2.5/find?q=${cityName}&appid=2ab8e34518940df98867eedb0c64a5cb&lang=${lang}`

@@ -38,7 +38,6 @@ export class HomeComponent implements OnInit {
 
     this.homeDegreeType = 'C';
     this.homeSelectedLang = this.translate.currentLang;
-    console.log(`hom ${this.homeSelectedLang}`);
   }
 
   randomBg(): void {
