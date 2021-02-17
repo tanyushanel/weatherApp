@@ -20,12 +20,13 @@ export class AppComponent {
   isToChange: boolean = true;
 
   changeBg(): void {
-    this.randomBg = this.bgImages[
-      // Math.floor(Math.random() * this.bgImages.length)
-      this.i < 3 ? this.i++ : (this.i = 0)
-    ];
+    this.i++;
+    if (this.i > 2) this.i = 0;
+
+    this.randomBg = this.bgImages[this.i];
 
     this.isToChange != this.isToChange;
+    console.log(this.randomBg);
   }
 
   constructor() {}

@@ -1,5 +1,5 @@
 <router-outlet></router-outlet>
 <app-home class="home"
-          (refreshClickFromHome)="changeBg()"
+          (onRefreshClickFromHome)="changeBg()"
           [ngStyle]="{'background': 'url('  +  '../assets/gradient.png'   +   ') no-repeat, url(' + randomBg + ')'}">
 </app-home>
